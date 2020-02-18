@@ -10,6 +10,8 @@ const Activity = (props) => {
     } = props;
 
     const [currentActivity, setActivity] = useState(null);
+    const [isLoading, setLoading] = useState(false);
+    const [hasError, setError] = useState(false);
 
     useEffect(() => {
         const displayType = capitalize(type);
@@ -19,6 +21,8 @@ const Activity = (props) => {
     }, [type])
 
     const fetchData = () => {
+        let loadingTimer = setTimeout(() => setLoading(true), 150);
+
         let url = `https://www.boredapi.com/api/activity`;
         if (type) {
             url += `?type=${type}`;
@@ -27,7 +31,12 @@ const Activity = (props) => {
         fetch(url)
             .then((res) => (res.json()))
             .then((res) => {
+                clearTimeout(loadingTimer);
+                setLoading(false);
                 setActivity(res);
+            })
+            .catch((err) => {
+                setError(true)
             })
     }
 
@@ -43,9 +52,31 @@ const Activity = (props) => {
         )
     }
 
+    if (hasError) {
+        return (
+            <div className="card">
+                <h3>Activity not Found</h3>
+            </div>
+        )
+    }
+
+    if (isLoading) {
+        return (
+            <div className="card">
+                Loading...
+            </div>
+        )
+    }
+
+    //  Show nothing if api call takes less than 100ms to prevent render flashing
+    if (!currentActivity) {
+        return null;
+    }
+
     return (
         <div className="activity">
             <ActivityCard
+                loading={isLoading}
                 {...currentActivity}
             />
             <button onClick={onRefresh}>Find a new activity</button>

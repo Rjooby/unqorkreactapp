@@ -11,6 +11,39 @@ const Account = (props) => {
         onLogin,
     } = props;
 
+    const [signInEmail, setEmail] = useState(null);
+
+    const onSignIn = (e) => {
+        e.preventDefault();
+        onLogin(signInEmail);
+    }
+
+    const handleChange = (e) => {
+        setEmail(e.target.value);
+    }
+
+    //  Should ideally be extracted into its own authentication component and
+    //  rendered whenever needing auth with redirect parameters for previous page preserved in URL or state
+    if (!isLoggedIn) {
+        return (
+            <div className="card">
+                Please sign in
+                <form className="form" onSubmit={onSignIn}>
+                    <label htmlFor="emailSignin">Email</label>
+                    <input type="email"
+                           name="emailSignin"
+                           aria-label="Sign In Email"
+                           onChange={handleChange}/>
+
+                    <label htmlFor="signIn">
+                        <input type="submit" name="signIn" value="Submit"/>
+                    </label>
+                </form>
+            </div>
+        )
+    }
+    //
+
     return (
         <React.Fragment>
             <Route

@@ -12,11 +12,24 @@ function App() {
     const [userInfo, setUserInfo] = useState(defaultUserState);
     const [isLoggedIn, setLoginStatus] = useState(false);
 
+    const onLogin = (email) => {
+        const newUser = {
+            ...userInfo,
+            email: email,
+        };
+        setUserInfo(newUser);
+        setLoginStatus(true);
+    }
+
+    const onLogout = () => {
+        setUserInfo(defaultUserState);
+    }
+
     return (
         <div className="app">
             <header className="app-header">
                 <a href="/" className="logo">BORED?</a>
-                <div></div>
+                <button onClick={onLogout}>Log Out</button>
             </header>
             <div className="app-body">
                 <Router>
@@ -27,8 +40,10 @@ function App() {
                             <Route path="/account"
                                    render={(props) =>
                                        <Account {...props}
-                                          userInfo={userInfo}
-                                          setInfo={setUserInfo}
+                                                userInfo={userInfo}
+                                                setInfo={setUserInfo}
+                                                isLoggedIn={isLoggedIn}
+                                                onLogin={onLogin}
                                        />
                                    }
                             />
