@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import Profile from './Profile';
 import Settings from './Settings';
 
@@ -58,6 +58,16 @@ const Account = (props) => {
                                              userInfo={userInfo}
                                              setInfo={setInfo}
                 />}
+            />
+            <Route
+                exact
+                path={`${props.match.path}`}
+                render={(props) => (
+                    <div className="card">
+                        <div><Link to={`${props.match.path}/profile`}>Profile</Link></div>
+                        <div><Link to={`${props.match.path}/settings`}>Settings</Link></div>
+                    </div>
+                )}
             />
         </React.Fragment>
     )
