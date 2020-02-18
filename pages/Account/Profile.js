@@ -28,9 +28,9 @@ const Profile = (props) => {
                     </div>
 
             </div>
-            <Link to="/account/settings">
-                Edit your information in the Settings Page
-            </Link>
+            {/*<Link to="/account/settings">*/}
+                {/*Edit your information in the Settings Page*/}
+            {/*</Link>*/}
         </React.Fragment>
     )
 }

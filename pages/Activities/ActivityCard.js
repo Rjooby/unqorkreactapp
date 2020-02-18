@@ -11,7 +11,7 @@ const ActivityCard = (props) => {
 
     return (
         <div className="card">
-            <h3>{capitalize(type)} Activity</h3>
+            <h3>{type ? capitalize(type) : ''} Activity</h3>
             <div>{activity}</div>
             <div>{`${participants} participant${participants === 1 ? '' : 's'}`}</div>
         </div>
