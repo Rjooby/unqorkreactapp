@@ -4,8 +4,7 @@ import './Activities.css';
 import { capitalize } from "../../utils/helperFunctions";
 import ActivityCard from './ActivityCard'
 
-export const Activity = (props) => {
-
+const Activity = (props) => {
     const {
         type
     } = props;
@@ -13,7 +12,7 @@ export const Activity = (props) => {
     const [currentActivity, setActivity] = useState(null);
 
     useEffect(() => {
-        const displayType = type.slice(0,1).toUpperCase() + type.slice(1);
+        const displayType = capitalize(type);
         document.title = `${displayType} Activities`
         fetchData();
 
@@ -36,21 +35,6 @@ export const Activity = (props) => {
         fetchData();
     }
 
-
-    const renderActivity = () => {
-        const { activity, type, participants } = currentActivity;
-
-        return(
-            <React.Fragment>
-                <h2>{capitalize(type)} Activity</h2>
-                <div>{activity}</div>
-                <div>{`${participants} participant${participants === 1 ? '' : 's'}`}</div>
-
-                <button onClick={onRefresh}>Find new Activity</button>
-            </React.Fragment>
-        )
-    }
-
     const renderLoading = () => {
         return(
             <div className="loading">
@@ -69,3 +53,5 @@ export const Activity = (props) => {
     )
 
 }
+
+export default Activity;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import {Activity} from "./Activity";
+import Activity from "./Activity";
 
 const Activities = (props) => {
     return(
