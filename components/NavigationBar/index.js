@@ -12,14 +12,22 @@ const NavigationBar = (props) => {
             <ul className="nav-list">
                 <li className={"nav-item"}>
                     <Accordion title="Activities">
-                        <NavLink to="/activities/recreational">Recreational</NavLink>
-                        <NavLink to="/activities/cooking">Cooking</NavLink>
+                        <NavLink to="/activities/recreational" className="nav-link" activeClassName="active">
+                            Recreational
+                        </NavLink>
+                        <NavLink to="/activities/cooking" className="nav-link" activeClassName="active">
+                            Cooking
+                        </NavLink>
                     </Accordion>
                 </li>
                 <li className={"nav-item"}>
                     <Accordion title="Account">
-                        <NavLink to="/account/profile">Profile</NavLink>
-                        <NavLink to="/account/settings">Settings</NavLink>
+                        <NavLink to="/account/profile" className="nav-link" activeClassName="active">
+                            Profile
+                        </NavLink>
+                        <NavLink to="/account/settings" className="nav-link" activeClassName="active">
+                            Settings
+                        </NavLink>
                     </Accordion>
                 </li>
             </ul>
