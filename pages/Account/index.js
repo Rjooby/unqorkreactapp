@@ -36,7 +36,7 @@ const Account = (props) => {
                            onChange={handleChange}/>
 
                     <label htmlFor="signIn">
-                        <input type="submit" name="signIn" value="Submit"/>
+                        <input type="submit" className="submit-button" name="signIn" value="Submit"/>
                     </label>
                 </form>
             </div>

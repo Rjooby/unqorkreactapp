@@ -7,9 +7,9 @@ const Settings = (props) => {
     } = userInfo;
 
     const [formValues, setFormValues] = useState({
-        firstName: null,
-        lastName: null,
-        email: null,
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
     })
 
     const handleSubmit = (e) => {
@@ -27,6 +27,7 @@ const Settings = (props) => {
         setFormValues(newState);
     }
 
+    //  TODO: Refactor inputs to use custom wrapper to prevent changing uncontrolled nature of base inputs
     return (
         <div className="card">
             <h3>User Settings</h3>
@@ -38,7 +39,7 @@ const Settings = (props) => {
                     name="firstName"
                     aria-label="First Name"
                     onChange={handleChange}
-                    value={firstName ? firstName : ""}
+                    value={formValues.firstName}
                 />
 
                 <label htmlFor="lastNameInput">Last Name</label>
@@ -48,7 +49,7 @@ const Settings = (props) => {
                     name="lastName"
                     aria-label="Last Name"
                     onChange={handleChange}
-                    value={lastName ? lastName : ""}
+                    value={formValues.lastName}
                 />
 
                 <label htmlFor="emailInput">Email</label>
@@ -58,17 +59,15 @@ const Settings = (props) => {
                     name="email"
                     aria-label="Email"
                     onChange={handleChange}
-                    value={email ? email : ""}
+                    value={formValues.email}
                 />
 
                 <label htmlFor="submit">
-                    <input type="submit" name="submit" value="Save"/>
+                    <input className="submit-button" type="submit" name="submit" value="Save"/>
                 </label>
             </form>
         </div>
     )
-
-
 }
 
 export default Settings;

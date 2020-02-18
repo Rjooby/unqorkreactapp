@@ -5,8 +5,6 @@ import './NavigationBar.css';
 import Accordion from '../Accordion';
 
 const NavigationBar = (props) => {
-    const { } = props;
-
     return (
         <div className="nav-bar">
             <ul className="nav-list">

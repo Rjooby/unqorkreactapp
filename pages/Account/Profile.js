@@ -33,12 +33,6 @@ const Profile = (props) => {
             </Link>
         </React.Fragment>
     )
-
-    return (
-        <div>
-            Profile
-        </div>
-    )
 }
 
 export default Profile;

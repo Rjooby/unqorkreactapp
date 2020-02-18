@@ -44,18 +44,10 @@ const Activity = (props) => {
         fetchData();
     }
 
-    const renderLoading = () => {
-        return(
-            <div className="loading">
-                Loading
-            </div>
-        )
-    }
-
     if (hasError) {
         return (
             <div className="card">
-                <h3>Activity not Found</h3>
+                <h3>Something went wrong, activity not found</h3>
             </div>
         )
     }
