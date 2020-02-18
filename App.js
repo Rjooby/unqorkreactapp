@@ -3,6 +3,8 @@ import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavigationBar from './components/NavigationBar';
 
+import Activities from './pages/Activities';
+
 function App() {
     return (
         <div className="app">
@@ -15,7 +17,7 @@ function App() {
                     <NavigationBar />
                     <div className="app-content">
                         <Switch>
-                            <Route path="/activities" render={() => <div>Activities</div>} />
+                            <Route path="/activities" component={Activities} />
                             <Route path="/account" render={() => <div>Account</div>}/>
                             <Route path="/" render={() => <div>Landing Page</div>}/>
                         </Switch>
