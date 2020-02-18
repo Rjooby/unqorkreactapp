@@ -1,0 +1,36 @@
+.accordion-container {
+    flex-direction: column;
+    width: 100%;
+}
+
+.accordion-title {
+    cursor: pointer;
+}
+
+.closed {
+    max-height: 0;
+    transition: max-height 0.1s ease-out;
+    overflow-y: hidden;
+}
+
+.open {
+    max-height: 200px;
+    overflow-y: hidden;
+
+    transition: max-height 0.5s ease-in;
+}
+
+.title {
+    cursor: pointer;
+    height: 30px;
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+}
+
+.collapsable-content {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid black;
+    background-color: lightgrey;
+}
